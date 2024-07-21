@@ -1,0 +1,6 @@
+<div class="artist-list">
+  <div *ngFor="let artist of artists" class="">
+    <h2>{{ artist.name }}</h2>
+    <img [src]="artist.photo" alt="{{ artist.name }}'s photo">
+  </div>
+</div>
