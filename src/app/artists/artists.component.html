@@ -1,2 +1,3 @@
 <h1>Artist List :</h1>
-<app-artist-list />
+<app-artist-form (addArtist)="addArtist($event)"></app-artist-form>
+<app-artist-list [artists]="artists" (deleteArtist)="deleteArtist($event)"></app-artist-list>
