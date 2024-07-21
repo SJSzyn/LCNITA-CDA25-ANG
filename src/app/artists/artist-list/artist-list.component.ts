@@ -1,19 +1,21 @@
-import {Component, Input} from '@angular/core';
-import {NgForOf} from '@angular/common';
+import {Component, EventEmitter, Input, Output, SimpleChanges} from '@angular/core';
+import {NgForOf, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-artist-list',
   standalone: true,
   imports: [
     NgForOf,
+    NgIf,
   ],
   templateUrl: './artist-list.component.html',
   styleUrl: './artist-list.component.scss'
 })
 export class ArtistListComponent {
-  @Input() artists = [
-    { name: 'Artist 1', photo: 'https://via.placeholder.com/150' },
-    { name: 'Artist 2', photo: 'https://via.placeholder.com/150' },
-    { name: 'Artist 3', photo: 'https://via.placeholder.com/150' }
-  ];
+  @Input() artists: { name: string, photo: string }[] = [];
+  @Output() deleteArtist = new EventEmitter<{ name: string, photo: string }>();
+
+  onDelete(artist: { name: string, photo: string }) {
+    this.deleteArtist.emit(artist);
+  }
 }

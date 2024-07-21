@@ -1,0 +1,9 @@
+<form [formGroup]="artistForm" (ngSubmit)="onSubmit()">
+  <label for="name">Artist Name: </label>
+  <input id="name" type="text" formControlName="name">
+
+  <label for="photo">Artist URL photo: </label>
+  <input id="photo" type="text" formControlName="photo">
+
+  <button type="submit" [disabled]="artistForm.invalid">Add Artist</button>
+</form>
