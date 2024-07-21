@@ -1,7 +1,5 @@
-<div>
-  <div *ngFor="let artist of artists" class="artist-item">
-    <h2>{{ artist.name }}</h2>
-    <img [src]="artist.photo" alt="{{ artist.name }}'s photo" *ngIf="artist.photo">
-    <button (click)="onDelete(artist)">Delete artist</button>
-  </div>
+<div *ngFor="let artist of artists" class="artist-item">
+  <h2>{{ artist.name }}</h2>
+  <img [src]="artist.photo" alt="{{ artist.name }}'s photo" *ngIf="artist.photo">
+  <button (click)="onDelete(artist)">Delete artist</button>
 </div>
