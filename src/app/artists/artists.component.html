@@ -1,3 +1,21 @@
-<h1>Artist List :</h1>
-<app-artist-form (addArtist)="addArtist($event)"></app-artist-form>
-<app-artist-list [artists]="artists" (deleteArtist)="deleteArtist($event)"></app-artist-list>
+<div>
+  <h3>Add New Artist</h3>
+  <input [(ngModel)]="newArtist.name" placeholder="Name">
+  <input [(ngModel)]="newArtist.photo" placeholder="Photo URL">
+  <button (click)="addArtist()">Add Artist</button>
+</div>
+
+<div *ngIf="selectedArtist">
+  <h3>Edit Artist</h3>
+  <input [(ngModel)]="selectedArtist.name" placeholder="Name">
+  <input [(ngModel)]="selectedArtist.photo" placeholder="Photo URL">
+  <button (click)="updateArtist()">Update Artist</button>
+  <button (click)="selectedArtist = null">Cancel</button>
+</div>
+
+<div *ngFor="let artist of artists">
+  <h2>{{ artist.name }}</h2>
+  <img [src]="artist.photo" alt="{{ artist.name }}">
+  <button (click)="selectArtist(artist)">Edit</button>
+  <button (click)="deleteArtist(artist.id)">Delete</button>
+</div>
